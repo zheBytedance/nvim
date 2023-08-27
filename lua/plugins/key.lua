@@ -4,7 +4,10 @@ return {
     optional = true,
     opts = {
       defaults = {
-        ["<localLeader>l"] = { name = "+vimtex" },
+        ["<localleader>l"] = { name = "+vimtex" },
+        ["<leader>r"] = { name = "+register" },
+        ["<leader>gd"] = { name = "+Diffview" },
+        ["<leader>gh"] = { name = "+Gitsign" },
       },
     },
   },

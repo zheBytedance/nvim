@@ -38,22 +38,8 @@ keymap("n", "<leader>a", ":keepjumps normal! ggVG<cr>")
 -- delete all the trailing whitespace
 -- keymap('n', '<leader>cc', ':keepjumps %s/\\s\\+$//e<CR>', {desc = 'del trailing space'})
 -- keymap('n', '<leader>cc', "! sed -i e :a -e '/./,$!d;/^\n*$/{$d;N;};/\n$/ba' file", {desc = 'del trailing space'})
--- add -i '' to make this command work both for linux and macos
-keymap("n", "<leader>cc", "! sed -i '' 's/[ \t]*$//' %<CR>", { desc = "del trailing space" })
-
--- Jump between register q and d
-keymap("n", "<leader>rq", "/<C-R>/<BS><BS><BS>q<CR>", { desc = "jump to reg_q" })
-keymap("n", "<leader>rd", "/<C-R>/<BS><BS><BS>d<CR>", { desc = "jump to reg_d" })
--- add _i and _o to all signal
-keymap("n", "<leader>ri", ":%s/<C-R>//\\0_i/ge<CR>", { desc = "add _i" })
-keymap("n", "<leader>ro", ":%s/<C-R>//\\0_o/ge<CR>", { desc = "add _o" })
+keymap("n", "<leader>cc", "! sed -i 's/[ \t]*$//' %<CR>", { desc = "del trailing space" })
 
 -- An recursive keybinding example, but avoid using this, may cause conflicts
 -- keymap('n', '<F2>', '<cmd>Lexplore<cr>')
 -- keymap('n', '<space><space>', '<F2>', {remap = true})
--- run cog and verilog mode
-keymap(
-  "n",
-  "<F5>",
-  "! python ~/anaconda3/pkgs/cogapp*/bin/cog.py -r %<CR> ! emacs -l /fpga/scripts/verilog-mode/.emacs --batch % -f verilog-batch-auto<CR> ! sed -i 's/[ \t]*$//' %<CR>"
-)

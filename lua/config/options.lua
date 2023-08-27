@@ -2,8 +2,11 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- set the autocomplete do not use tags
--- you can use :h cpt to check each flag
+-- add your path here, you need to use ** for recursive search, not *
+-- And you can't use ~ here, you must expand it, or use
+-- (vim.env.HOME .. "/projects/some-project/**")
+vim.opt.path:append("/home/zhe/Documents/projects/**")
+vim.opt.path:append("/home/zhe/Nutstore\\ Files/Typora/**")
 
 local options = {
   -- :h option-list to check more options
@@ -11,6 +14,7 @@ local options = {
   backup = false, -- creates a backup file
   winbar = "%=%m %f", -- It will put filename on top of the window
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+  spell = true, -- enable spell check
   cmdheight = 2, -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
@@ -27,7 +31,7 @@ local options = {
   wildignore = { "*/cache/*", "*/tmp/*" }, -- It's also ok to use = '*/cache/*,*/tmp/*'
   splitright = true, -- force all vertical splits to go to the right of current window
   swapfile = false, -- creates a swapfile
-  termguicolors = true,                    -- set term gui colors (most terminals support this)
+  termguicolors = true, -- set term gui colors (most terminals support this)
   timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
   autochdir = true,
   autoread = true,
@@ -68,5 +72,3 @@ vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 
 vim.opt.complete:remove({ "]" })
--- add your path here
-vim.opt.path:append("~/Documents/projects/")
