@@ -14,7 +14,18 @@ return {
       end,
     },
   },
-  { "akinsho/toggleterm.nvim" },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = true,
+    opts = {
+      size = 10,
+      autochdir = false,
+      start_in_insert = true,
+      open_mapping = [[<c-\>]],
+      direction = "horizontal",
+    },
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
