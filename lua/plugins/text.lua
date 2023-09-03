@@ -16,12 +16,18 @@ return {
       vim.g.vimtex_view_method = "zathura"
     end,
   },
-  { "vimwiki/vimwiki" },
+  {
+    "vimwiki/vimwiki",
+    enabled = false,
+    config = function()
+      vim.g.vimwiki_global_ext = 0
+    end,
+  },
   {
     "iamcco/markdown-preview.nvim",
     config = function()
       vim.g.mkdp_refresh_slow = 1
-      vim.g.mkdp_open_to_the_world = 1
+      vim.g.mkdp_open_to_the_world = 0
       vim.g.mkdp_open_ip = "127.0.0.1"
       vim.g.mkdp_echo_preview_url = 1
       vim.g.mkdp_port = "7777"
